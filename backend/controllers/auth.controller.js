@@ -103,4 +103,11 @@ export async function logout(req, res) {
   }
 }
 
-
+export async function authCheck(req, res) {
+  try {
+    res.status(200).json({ success: true, user: req.user });
+  } catch (erro) {
+    console.log("Error in authCheck controller ", error.message);
+    res.status(500).json({ success: false, message: "Internal server error" });
+  }
+}
