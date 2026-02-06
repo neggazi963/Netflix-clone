@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LogOut, Menu, Search } from "lucide-react";
 import { useAuthStore } from "../store/authUser";
-// import { useContentStore } from "../store/content";
+import { useContentStore } from "../store/content";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ const Navbar = () => {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
-  // const { setContentType } = useContentStore();
+  const { setContentType } = useContentStore();
 
   return (
     <header className="max-w-6xl mx-auto flex flex-wrap items-center justify-between p-4 h-20">
@@ -28,14 +28,14 @@ const Navbar = () => {
           <Link
             to="/"
             className="hover:underline"
-            // onClick={() => setContentType("movie")}
+            onClick={() => setContentType("movie")}
           >
             Movies
           </Link>
           <Link
             to="/"
             className="hover:underline"
-            // onClick={() => setContentType("tv")}
+            onClick={() => setContentType("tv")}
           >
             Tv Shows
           </Link>
